@@ -1,0 +1,107 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "$schema": "http://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.base.schema.json",
+  "name": "FreqTrade",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      // Use the VARIANT arg to pick a Debian OS version: buster, bullseye, bookworm
+      // Use bookworm and the latest Python.
+      "VARIANT": "3-bookworm",
+      // Options
+      // "ALL_PROXY": "${localEnv:ALL_PROXY}"
+      // "all_proxy": "${localEnv:ALL_PROXY}"
+      // "HTTP_PROXY": "${localEnv:HTTP_PROXY}",
+      // "HTTPS_PROXY": "${localEnv:HTTPS_PROXY}",
+      // "http_proxy": "${localEnv:HTTP_PROXY}",
+      // "https_proxy": "${localEnv:HTTPS_PROXY}"
+    }
+  },
+  // Forward ports from inside the primary container to the local machine
+  "forwardPorts": [
+    8080
+  ],
+  // An array of port numbers or "host:port" values Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "username": "vscode",
+      "userUid": "1000",
+      "userGid": "1000",
+      "upgradePackages": "true"
+    },
+    "ghcr.io/devcontainers/features/python:1": "none",
+    "ghcr.io/devcontainers/features/node:1": "none",
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": "false"
+    }
+  },
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "settings": {
+        "workbench.colorTheme": "Py Light",
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+        "[markdown]": {
+          "files.trimTrailingWhitespace": false
+        },
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.envFile": "${workspaceFolder}/.env",
+        "[python]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      },
+      "extensions": [
+        // Theme
+        "JuhaKokkonen.py-light",
+        "PKief.material-icon-theme",
+        // Git
+        "waderyan.gitblame",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "codezombiech.gitignore",
+        // Base
+        "charliermarsh.ruff",
+        "davidanson.vscode-markdownlint",
+        "rangav.vscode-thunder-client",
+        "mikestead.dotenv",
+        "streetsidesoftware.code-spell-checker",
+        // Plot html view
+        "ritwickdey.LiveServer",
+        // Python Dev
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "KevinRose.vsc-python-indent",
+        "njpwerner.autodocstring",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        // Jupyter support
+        "ms-toolsai.jupyter",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.vscode-jupyter-slideshow"
+      ]
+    }
+  },
+  "runArgs": [ "--env-file=${localWorkspaceFolder}/.env"],
+
+  "postCreateCommand": {
+    "installRequirements": "pip install requirements.txt"
+  }
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
