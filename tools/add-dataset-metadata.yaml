@@ -1,0 +1,49 @@
+identity:
+  name: modify-document-metadata
+  author: jinnnyang
+  label:
+    en_US: modify-document-metadata
+    zh_Hans: 修改文档的元数据
+    pt_BR: modify-document-metadata
+description:
+  human:
+    en_US: This tool enables you to modify the metadata of a specific document in a given Dify dataset. You must provide the dataset ID, the document ID, and the JSON list of metadata. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要修改 Dify 中指定数据集里特定文档的元数据时，可调用此工具。需提供数据集 ID、文档 ID 以及元数据的 JSON 列表。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To modify the metadata of a specific document in a Dify dataset, invoke this tool with required parameters including dataset ID, document ID, and JSON list of metadata.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the document's metadata will be modified.
+      zh_Hans: 要修改文档元数据所在的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for metadata modification.
+    form: llm
+  - name: document_id
+    type: string
+    required: true
+    label:
+      en_US: Document ID
+      zh_Hans: 要修改/新增元数据的文档 ID
+    human_description:
+      en_US: The unique identifier of the document whose metadata will be modified.
+      zh_Hans: 要修改元数据的文档的唯一标识符。
+    llm_description: A string used to identify a specific document in the dataset. It must be provided when invoking this tool to specify the target document for metadata modification.
+    form: llm
+  - name: json_list_metadata
+    type: string
+    required: true
+    label:
+      en_US: JSON List of Metadata
+      zh_Hans: 元数据的 JSON 列表
+    human_description:
+      en_US: A JSON list that describes the metadata to be modified for the document. Each item in the list should be a valid metadata object.
+      zh_Hans: 描述要为文档修改的元数据的 JSON 列表。列表中的每个项都应该是一个有效的元数据对象。
+    llm_description: A string parameter representing a JSON list that contains the details of the metadata to be modified for the document. Each element in the list should be a valid metadata object.
+    form: llm
+extra:
+  python:
+    source: tools/modify-document-metadata.py

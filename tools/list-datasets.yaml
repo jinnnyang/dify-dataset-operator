@@ -1,0 +1,43 @@
+identity:
+  name: list-datasets
+  author: jinnnyang
+  label:
+    en_US: list-datasets
+    zh_Hans: 列出所有知识库
+    pt_BR: list-datasets
+description:
+  human:
+    en_US: Enable Dify to natively manage its own datasets (knowledge base).
+    zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+    pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+  llm: Enable Dify to natively manage its own datasets (knowledge base).
+parameters:
+  - name: page
+    type: string
+    required: false
+    label:
+      en_US: Query string
+      zh_Hans: 返回查询结果的页数，一般为 1
+      pt_BR: Query string
+    human_description:
+      en_US: Enable Dify to natively manage its own datasets (knowledge base).
+      zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+      pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+    llm_description: Enable Dify to natively manage its own datasets (knowledge base).
+    form: llm
+  - name: limit
+    type: string
+    required: false
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+    human_description:
+      en_US: Enable Dify to natively manage its own datasets (knowledge base).
+      zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+      pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+    llm_description: Enable Dify to natively manage its own datasets (knowledge base).
+    form: llm
+extra:
+  python:
+    source: tools/list-datasets.py

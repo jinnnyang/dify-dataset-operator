@@ -1,0 +1,39 @@
+identity:
+  name: query-document-segments
+  author: jinnnyang
+  label:
+    en_US: query-document-segments
+    zh_Hans: 查询文档分段
+    pt_BR: query-document-segments
+description:
+  human:
+    en_US: This tool allows you to query the segments of a specific document in a Dify dataset. You need to provide the dataset ID and document ID. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要查询 Dify 数据集中特定文档的分段时，可调用此工具。需提供数据集 ID 和文档 ID。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To query the segments of a specific document in a Dify dataset, invoke this tool with required parameters including dataset ID and document ID.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the document is located.
+      zh_Hans: 文档所在的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for querying document segments.
+    form: llm
+  - name: document_id
+    type: string
+    required: true
+    label:
+      en_US: Document ID
+      zh_Hans: 文档的 ID
+    human_description:
+      en_US: The unique identifier of the document in the Dify dataset.
+      zh_Hans: 文档在 Dify 数据集中的唯一标识符。
+    llm_description: A string used to identify a specific document in a Dify dataset. It must be provided when invoking this tool to specify the target document for querying segments.
+    form: llm
+
+extra:
+  python:
+    source: tools/query-document-segments.py

@@ -1,0 +1,51 @@
+identity:
+  name: retrieve-knowledge-base
+  author: jinnnyang
+  label:
+    en_US: retrieve-knowledge-base
+    zh_Hans: 检索知识库
+    pt_BR: retrieve-knowledge-base
+description:
+  human:
+    en_US: This tool allows you to retrieve information from a specific dataset in Dify. You need to provide the dataset ID, query string, and optional retrieval model configuration. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要从 Dify 的指定数据集中检索信息时，可调用此工具。需提供数据集 ID、查询字符串以及可选的检索模型配置。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To retrieve information from a specific Dify dataset, invoke this tool with the required dataset ID, query string, and optional retrieval model configuration.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset to be retrieved.
+      zh_Hans: 要检索的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset.
+    form: llm
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query String
+      zh_Hans: 查询字符串
+    human_description:
+      en_US: The string used to query the dataset.
+      zh_Hans: 用于查询数据集的字符串。
+    llm_description: A string parameter representing the query content for retrieving information from the dataset.
+    form: llm
+  - name: search_method
+    type: string
+    required: false
+    default: keyword_search
+    label:
+      en_US: Retrieval Model Configuration
+      zh_Hans: 检索模型配置
+    human_description:
+      en_US: Configuration for the search method.
+      zh_Hans: 搜索方法设置。
+    llm_description: The configuration of the search method.
+    form: llm
+
+extra:
+  python:
+    source: tools/retrieve-knowledge.py

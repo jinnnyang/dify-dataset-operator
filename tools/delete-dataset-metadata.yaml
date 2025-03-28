@@ -1,0 +1,39 @@
+identity:
+  name: delete-dataset-metadata
+  author: jinnnyang
+  label:
+    en_US: delete-dataset-metadata
+    zh_Hans: 删除数据集元数据
+    pt_BR: delete-dataset-metadata
+description:
+  human:
+    en_US: This tool allows you to delete metadata from a specific dataset in Dify. You need to provide the dataset ID and metadata ID. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要从 Dify 的指定数据集中删除元数据时，可调用此工具。需提供数据集 ID 和元数据 ID。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To delete metadata from a specific Dify dataset, invoke this tool with required parameters including dataset ID and metadata ID.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset from which the metadata will be deleted.
+      zh_Hans: 要从中删除元数据的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for metadata deletion.
+    form: llm
+  - name: metadata_id
+    type: string
+    required: true
+    label:
+      en_US: Metadata ID
+      zh_Hans: 元数据的 ID
+    human_description:
+      en_US: The unique identifier of the metadata to be deleted.
+      zh_Hans: 要删除的元数据的唯一标识符。
+    llm_description: A string used to identify the specific metadata to be deleted from the dataset. It must be provided when invoking this tool.
+    form: llm
+
+extra:
+  python:
+    source: tools/delete-dataset-metadata.py

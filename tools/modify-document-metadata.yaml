@@ -1,0 +1,49 @@
+identity:
+  name: modify-document-metadata
+  author: jinnnyang
+  label:
+    en_US: modify-document-metadata
+    zh_Hans: 修改文档的元数据
+description:
+  human:
+    en_US: This tool allows you to modify the metadata of documents in a specific dataset in Dify. You need to provide the dataset ID and the operation data which includes document IDs and their corresponding metadata lists.
+    zh_Hans: 当你需要修改 Dify 中指定数据集里文档的元数据时，可调用此工具。需提供数据集 ID 和操作数据，操作数据包含文档 ID 及其对应的元数据列表。
+  llm: To modify the metadata of documents in a specific Dify dataset, invoke this tool with required parameters including dataset ID and operation data.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the documents' metadata will be modified.
+      zh_Hans: 要修改文档元数据的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for metadata modification.
+    form: llm
+  - name: document_id
+    type: string
+    required: true
+    label:
+      en_US: Document ID
+      zh_Hans: 要修改/新增元数据的文档 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the documents' metadata will be modified.
+      zh_Hans: 要修改文档元数据的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific document in dataset. It must be provided when invoking this tool to specify the target document for metadata modification.
+    form: llm
+  - name: json_list_metadata
+    type: string
+    required: true
+    label:
+      en_US: Operation Data
+      zh_Hans: 操作数据
+    human_description:
+      en_US: The data that describes the operations to modify the documents' metadata. Each item in the list should contain a document ID and a metadata list.
+      zh_Hans: 描述修改文档元数据操作的数据。列表中的每个项应包含一个文档 ID 和一个元数据列表。
+    llm_description: A list parameter that contains the details of the operations to modify the documents' metadata. Each element in the list should be a dictionary with 'document_id' and 'metadata_list' keys.
+    form: llm
+
+extra:
+  python:
+    source: tools/modify-document-metadata.py

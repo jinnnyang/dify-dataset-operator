@@ -1,0 +1,50 @@
+identity:
+  name: add-document-segments
+  author: jinnnyang
+  label:
+    en_US: add-document-segments
+    zh_Hans: 新增文档分段
+    pt_BR: add-document-segments
+description:
+  human:
+    en_US: This tool allows you to add segment to a specific document in a dataset in Dify. You need to provide the dataset ID, document ID, and the segments to be added.
+    zh_Hans: 当你需要向 Dify 数据集中的指定文档添加分段时，可调用此工具。需提供数据集 ID、文档 ID 以及要添加的分段信息。
+  llm: To add segments to a specific document in a Dify dataset, invoke this tool with the required dataset ID, document ID, and segments.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the document is located.
+      zh_Hans: 文档所在的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset.
+    form: llm
+  - name: document_id
+    type: string
+    required: true
+    label:
+      en_US: Document ID
+      zh_Hans: 文档的 ID
+    human_description:
+      en_US: The unique identifier of the document in the Dify dataset to which segments will be added.
+      zh_Hans: 要添加分段的 Dify 数据集中的文档的唯一标识符。
+    llm_description: A string used to identify a specific document in Dify. It must be provided when invoking this tool to specify the target document.
+    form: llm
+  - name: segments
+    type: string
+    required: true
+    label:
+      en_US: Segments
+      zh_Hans: 分段信息
+    human_description:
+      en_US: An array of segments to be added to the document. Each segment should contain content, answer, and keywords.
+      zh_Hans: 用字符串表示的数组，表示要添加到文档中的多个分段。每个分段应包含内容、答案和关键词。
+    llm_description: An array parameter representing the segments to be added to the document. Each element should be a dictionary with keys like 'content', 'answer', and 'keywords'.
+    form: llm
+
+extra:
+  python:
+    source: tools/add-document-segments.py

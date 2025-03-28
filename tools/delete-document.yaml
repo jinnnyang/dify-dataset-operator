@@ -1,0 +1,38 @@
+identity:
+  name: delete-document
+  author: jinnnyang
+  label:
+    en_US: delete-document
+    zh_Hans: 删除文档
+    pt_BR: delete-document
+description:
+  human:
+    en_US: This tool allows you to delete a specific document from a dataset in Dify. You need to provide the dataset ID and document ID. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要从 Dify 的数据集中删除特定文档时，可调用此工具。需提供数据集 ID 和文档 ID。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To delete a specific document from a Dify dataset, invoke this tool with required parameters including dataset ID and document ID.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the document will be deleted from.
+      zh_Hans: 要删除文档所在的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for document deletion.
+    form: llm
+  - name: document_id
+    type: string
+    required: true
+    label:
+      en_US: Document ID
+      zh_Hans: 文档的 ID
+    human_description:
+      en_US: The unique identifier of the document to be deleted.
+      zh_Hans: 要删除的文档的唯一标识符。
+    llm_description: A string used to identify a specific document in Dify. It must be provided when invoking this tool to specify the target document for deletion.
+    form: llm
+extra:
+  python:
+    source: tools/delete-document.py

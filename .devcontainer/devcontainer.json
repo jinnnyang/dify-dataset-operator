@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
   "$schema": "http://raw.githubusercontent.com/devcontainers/spec/refs/heads/main/schemas/devContainer.base.schema.json",
-  "name": "FreqTrade",
+  "name": "DifyDatasetsOperator",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "build": {
     "dockerfile": "Dockerfile",
@@ -100,7 +100,7 @@
   "runArgs": [ "--env-file=${localWorkspaceFolder}/.env"],
 
   "postCreateCommand": {
-    "installRequirements": "pip install requirements.txt"
+    "installRequirements": "pip install -r requirements.txt"
   }
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"

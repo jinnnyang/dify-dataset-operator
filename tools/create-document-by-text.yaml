@@ -1,0 +1,74 @@
+identity:
+  name: create-document-by-text
+  author: jinnnyang
+  label:
+    en_US: create-document-by-text
+    zh_Hans: 从文本创建文档
+    pt_BR: create-document-by-text
+description:
+  human:
+    en_US: This tool allows you to add a text as a document to a specific dataset in Dify. You need to provide information such as the dataset ID, document name, and document text. Additionally, you can specify the indexing technique and processing mode as needed. If not specified, default values will be used. Also, you need to provide the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要将一段文本作为文档添加到 Dify 的指定数据集中时，可调用此工具。需提供数据集 ID、文档名称、文档文本等信息。同时可按需指定索引技术和处理模式，若未指定则使用默认值。另外，调用时需提供知识 API 密钥和 API 地址。
+  llm: To add a text as a document to a specific Dify dataset, invoke this tool with required parameters including dataset ID, document name, and document text. Optional parameters such as indexing technology and processing mode can be specified; default configurations will apply if omitted.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset where the document will be added.
+      zh_Hans: 要将文档添加到的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for document creation.
+    form: llm
+  - name: document_name
+    type: string
+    required: true
+    label:
+      en_US: Document Name
+      zh_Hans: 文档名称
+    human_description:
+      en_US: The name of the document to be created.
+      zh_Hans: 要创建的文档的名称。
+    llm_description: A string parameter used to specify the name of the newly created document. It is not a required field. If not provided, a default naming rule may be used.
+    form: llm
+  - name: document_text
+    type: string
+    required: true
+    label:
+      en_US: Document Text
+      zh_Hans: 文档正文
+    human_description:
+      en_US: The specific text content contained in the document.
+      zh_Hans: 文档所包含的具体文本内容。
+    llm_description: A string parameter representing the actual text information to be added to the document. It is not a required field, but it is usually needed when creating a document.
+    form: llm
+  - name: indexing_technique
+    type: string
+    required: false
+    default: "high_quality"
+    label:
+      en_US: Indexing Technique
+      zh_Hans: 索引技术
+    human_description:
+      en_US: The indexing technique for the document. By default, high - quality indexing is used.
+      zh_Hans: 文档的索引技术，默认采用高质量索引。
+    llm_description: A string parameter that specifies the indexing technique for the document. The default value is "high_quality", and other suitable indexing techniques can be selected according to requirements.
+    form: llm
+  - name: process_mode
+    type: string
+    required: false
+    default: "automatic"
+    label:
+      en_US: Processing Mode
+      zh_Hans: 处理模式
+    human_description:
+      en_US: The processing mode for the document. By default, automatic processing is used.
+      zh_Hans: 文档的处理模式，默认是自动处理。
+    llm_description: A string parameter that specifies the processing mode for the document. The default value is "automatic", and other processing modes can be selected according to the actual situation.
+    form: llm
+
+extra:
+  python:
+    source: tools/create-document-by-text.py

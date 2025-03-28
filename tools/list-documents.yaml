@@ -1,0 +1,28 @@
+identity:
+  name: get-knowledge-base-documents
+  author: jinnnyang
+  label:
+    en_US: get-knowledge-base-documents
+    zh_Hans: 获取知识库文档列表
+    pt_BR: get-knowledge-base-documents
+description:
+  human:
+    en_US: This tool allows you to retrieve the list of documents in a specific dataset in Dify. You need to provide the dataset ID and the knowledge API key and API address when invoking this tool.
+    zh_Hans: 当你需要获取 Dify 中指定数据集的文档列表时，可调用此工具。调用时需提供数据集 ID、知识 API 密钥和 API 地址。
+  llm: To retrieve the list of documents in a specific Dify dataset, invoke this tool with the required dataset ID.
+parameters:
+  - name: dataset_id
+    type: string
+    required: true
+    label:
+      en_US: Dataset ID
+      zh_Hans: 数据集的 ID
+    human_description:
+      en_US: The unique identifier of the Dify dataset for which you want to retrieve the document list.
+      zh_Hans: 要获取文档列表的 Dify 数据集的唯一标识符。
+    llm_description: A string used to identify a specific dataset in Dify. It must be provided when invoking this tool to specify the target dataset for retrieving documents.
+    form: llm
+
+extra:
+  python:
+    source: tools/list-documents.py

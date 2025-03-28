@@ -7,11 +7,50 @@ identity:
     pt_BR: dataset-operator
   description:
     en_US: Enable Dify to natively manage its own datasets (knowledge base).
-    zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+    zh_Hans: 该工具允许 Dify 操作 Dify 知识库（用于自动化知识库维护）。
     pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
   icon: icon.svg
+
+credentials_for_provider: #添加 credentials_for_provider 字段
+  knowledge_api_key:
+    type: secret-input
+    default: dataset-F0eyan50Lm95W1WfZkrRKyDo
+    required: true
+    label:
+      en_US: Dify Knowledge API key
+      zh_Hans: Dify 知识库的 API 密钥
+    placeholder:
+      en_US: Please input your Dify Knowledge API key
+      zh_Hans: 请输入你的 Dify 知识库的 API 密钥
+    help:
+      en_US: Get your API key from Dify Knowledge
+      zh_Hans: 从 Dify 知识库页面获取您的 API key
+    url: datasets?category=api
+  knowledge_api_url:
+    type: text-input
+    required: false
+    default: https://locahost:5001
+    label:
+      en_US: Dify Knowledge API url
+      zh_Hans: Dify 知识库的 API 地址
+    placeholder:
+      en_US: "Example: https://locahost:5001"
+      zh_Hans: "例如：https://locahost:5001"
+    help:
+      en_US: Configure the API URL to which you want to connect.
+      zh_Hans: 设置要连接的 Dify API 地址
+    url: https://blog.csdn.net/ssw_1990/article/details/140364244
+
 tools:
-  - tools/dataset-operator.yaml
+  - tools/list-datasets.yaml
+  - tools/create-document-by-text.yaml
+  - tools/delete-document.yaml
+  - tools/list-documents.yaml
+  - tools/add-document-segments.yaml
+  - tools/retrieve-knowledge.yaml
+  - tools/update-document-by-text.yaml
+  - tools/modify-document-metadata.yaml
+
 extra:
   python:
     source: provider/dataset-operator.py
