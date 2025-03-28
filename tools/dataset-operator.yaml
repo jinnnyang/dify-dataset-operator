@@ -1,0 +1,30 @@
+identity:
+  name: dataset-operator
+  author: jinnnyang
+  label:
+    en_US: dataset-operator
+    zh_Hans: dataset-operator
+    pt_BR: dataset-operator
+description:
+  human:
+    en_US: Enable Dify to natively manage its own datasets (knowledge base).
+    zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+    pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+  llm: Enable Dify to natively manage its own datasets (knowledge base).
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+    human_description:
+      en_US: Enable Dify to natively manage its own datasets (knowledge base).
+      zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+      pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+    llm_description: Enable Dify to natively manage its own datasets (knowledge base).
+    form: llm
+extra:
+  python:
+    source: tools/dataset-operator.py

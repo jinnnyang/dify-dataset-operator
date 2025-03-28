@@ -1,0 +1,17 @@
+identity:
+  author: jinnnyang
+  name: dataset-operator
+  label:
+    en_US: dataset-operator
+    zh_Hans: dataset-operator
+    pt_BR: dataset-operator
+  description:
+    en_US: Enable Dify to natively manage its own datasets (knowledge base).
+    zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+    pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+  icon: icon.svg
+tools:
+  - tools/dataset-operator.yaml
+extra:
+  python:
+    source: provider/dataset-operator.py

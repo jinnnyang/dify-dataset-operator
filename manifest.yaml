@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: jinnnyang
+name: dataset-operator
+label:
+  en_US: dataset-operator
+  ja_JP: dataset-operator
+  zh_Hans: dataset-operator
+  pt_BR: dataset-operator
+description:
+  en_US: Enable Dify to natively manage its own datasets (knowledge base).
+  ja_JP: Enable Dify to natively manage its own datasets (knowledge base).
+  zh_Hans: Enable Dify to natively manage its own datasets (knowledge base).
+  pt_BR: Enable Dify to natively manage its own datasets (knowledge base).
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/dataset-operator.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-03-28T13:31:39.487190231Z
+privacy: PRIVACY.md
+verified: false
