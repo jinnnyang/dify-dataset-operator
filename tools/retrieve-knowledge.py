@@ -30,15 +30,18 @@ class RetrieveKnowledge(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         key = self.runtime.credentials["knowledge_api_key"]
         dataset_id = tool_parameters.get("dataset_id")
-        search_method = tool_parameters.get("search_method", "keyword_search")
+
         url = f"{self.runtime.credentials['knowledge_api_url'].strip('/')}/datasets/{dataset_id}/retrieve"
+
+        search_method = tool_parameters.get("search_method", "keyword_search")
+        reranking_enable = tool_parameters.get("reranking_enable", False)
 
         query = tool_parameters.get("query")
         retrieval_model = tool_parameters.get(
             "retrieval_model",
             {
                 "search_method": search_method,
-                "reranking_enable": True,
+                "reranking_enable": reranking_enable,
                 "reranking_mode": None,
                 "reranking_model": {
                     "reranking_provider_name": "langgenius/jina/jina",

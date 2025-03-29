@@ -34,17 +34,47 @@ parameters:
     llm_description: A string parameter representing the query content for retrieving information from the dataset.
     form: llm
   - name: search_method
-    type: string
+    type: select
     required: false
-    default: keyword_search
+    default: semantic_search
+    options:
+      - label:
+          en_US: Semantic Search
+          zh_Hans: 语义检索
+        value: semantic_search
+      - label:
+          en_US: Keyword Search
+          zh_Hans: 关键词检索
+        value: keyword_search
     label:
-      en_US: Retrieval Model Configuration
-      zh_Hans: 检索模型配置
+      en_US: Configuration for the search method.
+      zh_Hans: 检索方法设置。
     human_description:
       en_US: Configuration for the search method.
-      zh_Hans: 搜索方法设置。
+      zh_Hans: 搜索方法设置
     llm_description: The configuration of the search method.
-    form: llm
+    form: form
+  - name: reranking_enable
+    type: boolean
+    required: false
+    options:
+      - value: "true"
+        label:
+          en_US: "Yes"
+          zh_Hans: 是
+      - value: "false"
+        label:
+          en_US: "No"
+          zh_Hans: 否
+    default: "false"
+    label:
+      en_US: Configuration for the search method.
+      zh_Hans: 使用重排序
+    human_description:
+      en_US: Configuration for the search method.
+      zh_Hans: 使用重排序
+    llm_description: Using reranking
+    form: form
 
 extra:
   python:
